@@ -1,2 +1,0 @@
-# dailyquotes
-Created with CodeSandbox
