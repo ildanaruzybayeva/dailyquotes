@@ -1,19 +1,21 @@
 .content {
-  display: flex-column;
+  display: flex;
   position: relative;
+  align-items: left;
 }
 
 img {
   height: 100vh;
   width: 100vw;
-  z-index: 1;
 }
 
 h1 {
   position: absolute;
 }
 
-button {
+div button {
   position: absolute;
-  float: left;
+  align-items: left;
+  color: green;
+  background-color: azure;
 }

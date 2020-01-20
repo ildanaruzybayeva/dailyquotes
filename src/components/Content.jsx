@@ -38,6 +38,7 @@ class Content extends Component {
         <div className="image">
           <img src={this.state.image} alt="wqeqwe" />
         </div>
+        d
       </div>
     );
   }
