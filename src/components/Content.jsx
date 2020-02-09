@@ -1,47 +1,42 @@
-import React, { Component } from "react";
-import { quotes, images } from "./data";
+import React, { useState } from "react";
 import "./Content.css";
 
-class Content extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      quote: "Welcome",
-      image:
-        "https://ablehealth.com/wp-content/uploads/2018/11/asphalt-aspiration-clouds-215.jpg"
-    };
-    this.randQuote = this.randQuote.bind(this);
-    this.randImg = this.randImg.bind(this);
-  }
+const quotes = [
+  "Be yourself, everyone else is already taken",
+  "So many books, so little time",
+  "You only live once, but if you do it right, once is enough",
+  "In three words I can sum up everything I have learned about life: it goes on",
+  "If you tell the truth, you dont have to remember anything",
+  "We accept the love we think we deserve"
+];
 
-  randQuote() {
-    const randIdx = Math.floor(Math.random() * quotes.length);
-    const randVal = quotes[randIdx];
-    this.setState({
-      quote: randVal
-    });
-  }
+const images = [
+  "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+  "https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  "https://images.unsplash.com/photo-1535498730771-e735b998cd64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
+];
 
-  randImg() {
-    const randIdx = Math.floor(Math.random() * quotes.length);
-    const randVal = images[randIdx];
-    this.setState({
-      image: randVal
-    });
-  }
+const randomThing = array => array[Math.floor(Math.random() * array.length)];
 
-  render() {
-    return (
-      <div className="content">
-        <h1>{this.state.quote}</h1>
-        <button onClick={this.randQuote}>Get a random quote</button>
-        <div className="image">
-          <img src={this.state.image} alt="wqeqwe" />
-        </div>
-        d
+function Content() {
+  const [quote, setQuote] = useState(quotes[0]);
+  const [image, setImage] = useState(images[0]);
+
+  const handleClick = () => {
+    setQuote(randomThing(quotes));
+    setImage(randomThing(images));
+  };
+
+  return (
+    <div className="content">
+      <h1>{quote}</h1>
+      <button onClick={handleClick}>Get a random quote</button>
+      <div className="image">
+        <img src={image} alt="wqeqwe" />
       </div>
-    );
-  }
+      d
+    </div>
+  );
 }
 
 export default Content;
